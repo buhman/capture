@@ -1,8 +1,10 @@
 # capture
 
-`capture` is a no bullshit screen capture tool.
-
 [![circleci](https://img.shields.io/circleci/project/github/buhman/capture.svg)](https://circleci.com/gh/buhman/capture)
+
+[![capture recording itself](https://ptpb.pw/AMcwjQDwY3rGCgL7thqQIr3VljcW.gif)](https://ptpb.pw/AMcwjQDwY3rGCgL7thqQIr3VljcW.gif)
+
+`capture` is a no bullshit screen capture tool.
 
 ## installation
 
