@@ -24,6 +24,9 @@ capture_raw () {
 
   dimensions=$(slop -f "-s %wx%h -i $DISPLAY+%x,%y")
 
+  # would it be cleaner if I passed dimensions instead of doing this here?
+  countdown
+
   # I'd love to split slop output into a variable, but bash makes too hard
 
   ffmpeg -y -hide_banner -f x11grab $dimensions $raw_video "$output"
@@ -49,6 +52,14 @@ encode_webm () {
   local input="$1" output="$2"
 
   ffmpeg -y -hide_banner -i "$input" -vf "scale=$scale" $webm_video "$output"
+}
+
+
+countdown () {
+  for i in {3..1}; do
+    printf "$i.."
+    sleep 1
+  done
 }
 
 
