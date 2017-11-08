@@ -14,7 +14,7 @@ An install script is provided for convenience.
 $ curl -Lo- "https://raw.githubusercontent.com/buhman/capture/master/install.sh" | sudo bash
 ```
 
-This is just a handfull of trivial commands that places `capture` in
+This is just a handful of trivial commands to install `capture` in
 `/usr/local/bin`. Feel free to copy-paste instead if you wish.
 
 ## dependencies
