@@ -5,11 +5,11 @@ setup () {
   mkfifo "$fifo"
 
   _OLDPATH="$PATH"
-  export PATH="$(pwd)/fakebin:$PATH"
+  export PATH="$BATS_TEST_DIRNAME/fakebin:$PATH"
 }
 
 capture () {
-  ./capture "$@"
+  "$BATS_TEST_DIRNAME/capture" "$@"
 }
 
 stop_capture () {

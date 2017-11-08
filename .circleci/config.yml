@@ -1,0 +1,10 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: /capture
+    docker:
+      - image: buhman/ffmpeg-docker:latest
+    steps:
+      - checkout
+      - run: bats test
