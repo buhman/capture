@@ -8,7 +8,7 @@
 
 ## installation
 
-An install script is provided for simplicity.
+An install script is provided for convenience.
 
 ```sh
 $ curl -Lo- "https://raw.githubusercontent.com/buhman/capture/master/install.sh" | sudo bash
