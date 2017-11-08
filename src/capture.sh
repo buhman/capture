@@ -10,7 +10,7 @@ set -e
 
 scale="-1:-1"
 fps="15"
-raw_video="-framerate $fps -c:v utvideo -f nut"
+raw_video="-vf fps=$fps -c:v utvideo -f nut"
 raw_video_container=".nut"
 
 webm_video="-pix_fmt yuv420p -c:v libvpx-vp9 -crf 25 -b:v 0 -f webm"
@@ -38,7 +38,7 @@ encode_gif () {
   local input="$1" output="$2" palette
 
   palette=$(mktemp -p/tmp --suffix .png)
-  filters="scale=$scale:flags=lanczos"
+  filters="fps=$fps,scale=$scale:flags=lanczos"
 
   ffmpeg -y -v warning -i "$input" -vf "$filters,palettegen" -y "$palette"
   ffmpeg -y -hide_banner -i "$input" -i "$palette" -lavfi "$filters [x]; [x][1:v] paletteuse" -f gif "$output"
