@@ -27,8 +27,6 @@ capture_raw () {
   # would it be cleaner if I passed dimensions instead of doing this here?
   countdown
 
-  # I'd love to split slop output into a variable, but bash makes too hard
-
   ffmpeg -y -hide_banner -f x11grab $dimensions $raw_video "$output"
 }
 
