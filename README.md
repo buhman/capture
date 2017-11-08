@@ -35,10 +35,10 @@ Maximum simple:
 capture
 ```
 
-You'll get a selection rectangle, followed by the capture of that region. Press
-`q` to stop the capture and finish encoding. The resulting filename will be
-printed on stdout. You can capture this result to use it for further
-processing/uploading.
+You'll get a selection rectangle, followed by the capture of that region. You
+can either drag-select a region, or click to select an entire window. Press `q`
+(once) to stop the capture and finish encoding. The resulting filename, if not
+specified, will be printed on stdout.
 
 ### stdout
 
