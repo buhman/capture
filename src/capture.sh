@@ -13,7 +13,10 @@ fps="15"
 raw_video="-vf fps=$fps -c:v utvideo -f nut"
 raw_video_container=".nut"
 
-webm_video="-pix_fmt yuv420p -c:v libvpx-vp9 -crf 25 -b:v 0 -f webm"
+# libvpx-vp9 doesn't implement frame-level parallelism, so the maximum number of
+# threads is proportional to the size of each frame
+# https://stackoverflow.com/questions/41372045/vp9-encoding-limited-to-4-threads
+webm_video="-pix_fmt yuv420p -c:v libvpx-vp9 -crf 25 -b:v 0 -f webm -tile-columns 6 -frame-parallel 1 -threads 8"
 
 tmpdir="/var/tmp"
 
@@ -66,7 +69,7 @@ countdown () {
 capture () {
   local tmpfile output
 
-  tmpfile=$(mktemp -p"$tmpdir" --suffix "$raw_video_suffix")
+  tmpfile=$(mktemp -p"$tmpdir" --suffix "$raw_video_container")
   output="$2"
 
   if [ -z "$2" ]; then
