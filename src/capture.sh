@@ -9,7 +9,7 @@ set -e
 #
 
 scale="-1:-1"
-fps="15"
+fps="30"
 raw_video="-vf fps=$fps -c:v utvideo -f nut"
 raw_video_container=".nut"
 
@@ -18,7 +18,8 @@ raw_video_container=".nut"
 # https://stackoverflow.com/questions/41372045/vp9-encoding-limited-to-4-threads
 webm_video="-pix_fmt yuv420p -c:v libvpx-vp9 -crf 25 -b:v 0 -f webm -tile-columns 6 -frame-parallel 1 -threads 8"
 
-tmpdir="/var/tmp"
+tmpdir="/tmp"
+
 
 
 # capture_raw ./foo.nut
@@ -103,4 +104,4 @@ capture () {
 
 
 # remove this line if you want to source this file instead
-eval " ${0##*/}" "$@"
+capture "$@"
